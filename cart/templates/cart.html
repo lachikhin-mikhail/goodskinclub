@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+{% load static %}
+    <div class="textcart"><h6>CART</h6></div>
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">PRODUCT</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">QUANTITY</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cartItems %}
+          <tr>
+            <th scope="row"><img src="{{ item.product.image.small.url }}" width="150px" height="150px"></th>
+            <td>{{ item.product.title|upper }}</td>
+            <td>{{ item.calcPrice }}</td>
+            <td>
+              <div class="row">
+                <div class="col-1">
+                  <form method="POST" action="{% url 'deleteOne' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                  <input class="btn btn-primary" type="submit" value="-" />
+                  </form>
+                </div>
+                <div class="col-1">
+                  {{ item.quantity }}
+                </div>
+                <div class="col-4">
+                <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="user" value="{{ user }}">
+                <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                <input class="btn btn-primary" type="submit" value="+" />
+                </form>
+                </div>
+                <div class="col-1">
+                  <form method="POST" action="{% url 'delete' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                  <input class="btn btn-primary" type="submit" value="🗑" />
+                  </form>
+                </div>
+
+              </div>
+
+            </td>
+
+
+            </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    <div class="textcart"><h6>TOTAL {{ total }}$</h6></div>
+</body>
+
+
+{% endblock %}

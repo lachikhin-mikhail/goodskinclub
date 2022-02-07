@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>{{ description }}</p>
+<h4>Перейти к продуктам по типу кожи:</h4>
+{% if result == 'a' %}
+<h4><a href="{% url 'products'%}f">combination skin</a></h4>
+{% endif %}
+{% if result == 'b' %}
+<h4><a href="{% url 'products'%}f/d">combination skin</a></h4>
+{% endif %}
+{% if result == 'c' %}
+<h4><a href="{% url 'products'%}f/o">combination skin</a></h4>
+{% endif %}
+{% if result == 'd' %}
+<h4><a href="{% url 'products'%}f/c">combination skin</a></h4>
+
+{% endif %}
+{% endblock %}

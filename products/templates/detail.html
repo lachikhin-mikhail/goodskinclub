@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-6">
+    <img src="{{ product.image.big.url }}" class="image-fluid" alt="Product Image">
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <h1>{{ product.title }} {{ product.price }}$</h1>
+    </div>
+    <div class="row">
+      <p>{{ product.volume }}ml</p>
+    </div>
+    <div class="row">
+      {% for tag in product.tags.all %}
+        <p> {{ tag.name }} </p>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col-9">
+
+        <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <input class="btn btn-primary" type="submit" value="ADD TO CART" />
+
+        </form>
+      </div>
+      <div class="">
+        <form method="POST" action="{% url 'toggleFav' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <input class="btn btn-primary" type="submit" value="<3" />
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <p>{{ product.description }}</p>
+    </div>
+    <div class="row">
+      <p>INGRIDIENTS</p><br>
+      <p>{{ product.ingridients }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

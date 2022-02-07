@@ -1,0 +1,416 @@
+body{
+    background-image: url("/static/img/bg/bgmain.jpg");
+    background-color: #F9FFE9;
+    background-size: 100% auto;
+    font-family: 'Playfair Display', serif;
+}
+
+footer{
+  padding-top: 250px;
+}
+
+.top-menu {
+  position: relative;
+}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-item {
+    margin-top: 10px;
+    float: left;}
+.right-item {
+    margin-top: 20px;
+    float: right;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 540px;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  line-height: 80px;
+  padding: 0 10px;
+  font-size: 23px;
+  margin-right: 20px;
+  margin-left: 20px;
+  letter-spacing: 1px;
+  font-family: 'Playfair', serif;
+  font-weight: bold;
+  color: black;
+  transition: .3s linear;
+}
+.menu-main a:hover
+{display:block;
+    background: rgba(293,58,0);
+border-radius: 50px;}
+@media (max-width: 830px) {
+.menu-main {
+  padding-top: 90px;
+  text-align: center;
+}
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+}
+.menu-main li {
+  float: none;
+  display: inline-block;
+}
+.menu-main a {
+  line-height: normal;
+  padding: 20px 15px;
+  font-size: 16px;
+}
+}
+
+@media (max-width: 630px) {
+.menu-main li {display: block;}
+}
+.nav{
+	display: flex;
+    list-style-type: none;
+	align-items: center;
+}
+
+.menu{
+	display: flex;
+	margin-left: auto;
+ /*выравнивание в одну линию*/
+}
+
+.menu li {
+	margin-right: 30px;
+	text-decoration: none;
+}
+
+.logo{
+  display: flex;
+  width: 202px;
+  height: 83px;
+  padding-left: 30px;
+
+}
+
+.container{
+	width: 1300px;
+	margin: 0 auto; /*позиционирование по центру*/
+}
+
+.menu li a{
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.container{
+	width: 1170px;
+	margin: 0 auto; /*позиционирование по центру*/
+
+}
+
+ul, li{
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+/**/
+.photo{
+    display: block;
+ margin-left: 420px;
+ margin-top: 60px;
+}
+
+/**/
+.main{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 420px;
+    margin-top: 0px;
+    padding-right: 400px;
+
+}
+
+h1{
+    color: #0F6B2C;
+    font-family: 'Playfair Display', serif;
+    font-size:x-large;
+    margin-top: -120px;
+    font-size: 160px;
+    letter-spacing: 80px;
+    margin-bottom: -10px;
+}
+
+.praza {
+    color: black;
+    font-family: 'Playfair Display-Regular', serif;
+    font-size: 40px;
+    font-style: italic;
+    margin-top: 70px;
+}
+
+.praza p1{
+margin-left: 170px;
+margin-bottom: -40px;
+}
+
+.praza p{
+    margin-top: -10px;
+    margin-left: 60px;
+}
+
+.justtext h2
+{
+    font-family: 'Playfair Display' serif;
+    font-size: 220px;
+    text-align: justify;
+    margin-top: 40px;
+    max-width: 1900px;
+    padding-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #50443E;
+}
+
+.pic{
+    margin-top: 80px;
+    margin-left: -160px;
+}
+
+.justtext h2
+{
+    font-family: 'Playfair Display' serif;
+    font-size: 220px;
+    text-align: justify;
+    margin-top: 40px;
+    max-width: 1900px;
+    padding-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #50443E;
+}
+.justtext2 h3
+{
+    font-family: 'Playfair Display' serif;
+    font-size: 180px;
+    text-align: justify;
+    margin-top: 40px;
+    max-width: 1900px;
+    padding-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #50443E;
+}
+.justtext3 h5
+{
+    font-family: 'Playfair Display' serif;
+    font-size: 180px;
+    text-align: justify;
+    margin-top: 40px;
+    max-width: 1900px;
+    padding-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #F9FFE9;
+}
+.row {
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.col-lg-3{
+    padding-bottom: 40px;
+}
+.prodicon
+{
+    width: 20px;
+    height: 20px;
+}
+.product-card {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+	transition: all .3s;
+}
+
+.product-card:hover {
+	box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+}
+
+.product-thumb a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	padding: 20px;
+}
+
+.product-thumb img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.product-details {
+	padding: 20px;
+}
+
+.product-details h4 a {
+	font-weight: 500;
+	display: block;
+	height: 30px;
+	overflow: hidden;
+	text-decoration: none;
+    color: black;
+}
+
+.product-details p {
+	font-size: 15px;
+	margin-bottom: 20px;
+	color: black;
+	height: 20px;
+	overflow: hidden;
+}
+
+.product-bottom-details {
+	overflow: hidden;
+	border-top: 1px solid #eee;
+	padding-top: 20px;
+}
+
+/* .product-price {
+	font-size: 18px;
+	color: #ee6e73;
+	font-weight: 600;
+} */
+
+.product-price small {
+	color:black;
+    font-size: 20px;
+	font-weight: 400;
+	text-decoration: none;
+	margin-right: 5px;
+}
+
+.product-links a {
+	font-size: 20px;
+	margin-left: 10px;
+}
+.footer {
+	background-color:#0F6B2C;
+    height: 500px;
+    margin-top:-250px;
+}
+
+.footer h4 {
+	color:#F9FFE9;
+    font-family: 'Playfair Display' serif;
+	text-transform: uppercase;
+	font-size: 20px;
+    margin-top: 200px;
+	border-bottom: 1px solid #F9FFE9;
+	padding-bottom: 3px;
+}
+
+.footer a {
+	text-decoration: none;
+    font-family: 'Playfair Display' serif;
+	transition: all .3s;
+}
+
+.footer a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.footer a, .footer li {
+	color:#F9FFE9;
+}
+
+.footer li a {
+	display: block;
+}
+
+.footer-icons a {
+	display: inline-block;
+	margin-right: 15px;
+	font-size: 20px;
+}
+
+.prodicon1{
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.bg{
+    margin-top: -100px;
+    width: 100%;
+background-image: url(/img/bg/backstore.jpg);
+}
+
+.btn-circle {
+    width: 100px;
+    height: 100PX;
+    border-radius: 50px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+    color: #F9FFE9;
+
+}
+.btn-circle:active{
+    background-color: rgba(293,58,0);
+}
+
+
+.btn-group{
+    margin-left: 120px;
+    margin-top: 50px;
+}
+
+.btn-toolbar
+{
+    margin-left: 250px;
+
+}
+
+.tags{
+    margin-left: 100px;
+    margin-top: 40px;
+    font-family: 'Raleway';
+
+}
+
+.tags a{
+    margin-left:50px;
+    font-family: 'Raleway';
+    font-size: 20px;
+    display: inline-block;
+    color: black;
+}
+
+.tags li :hover{
+    color: rgba(293,58,0);
+}
+
+.fav1{
+    margin-top: 110px;
+}
+
+.col-lg-4{
+    margin-top: 40px;
+}

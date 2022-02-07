@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="btn-toolbar">
+    <div class="btn-group">
+      <a href="{% url 'products' %}"><button type="button" class="btn btn-light btn-circle">ALL</button></a>
+    </div>
+    <div class="btn-group">
+      <a href="{% url 'products' %}f"><button type="button" class="btn btn-light btn-circle">FACE</button></a>
+    </div>
+    <div class="btn-group">
+      <a href="{% url 'products'%}h"><button type="button" class="btn btn-light btn-circle">HAIR</button></a>
+    </div>
+    <div class="btn-group">
+        <a href="{% url 'products' %}b"><button type="button" class="btn btn-light btn-circle">BODY</button></a>
+      </div>
+  </div>
+{% if category == "f" %}
+  <div class="tags">
+    <ul class="tags">
+        <li class="left-item"><a href="{% url 'products'%}f">all</a></li>
+        <li class="left-item"><a href="{% url 'products'%}f/o">oily skin</a></li>
+        <li class="left-item"><a href="{% url 'products'%}f/d">dry skin</a></li>
+        <li class="left-item"><a href="{% url 'products'%}f/c">combination skin</a></li>
+    </ul>
+  </div>
+{% endif %}
+
+<!-- Выгрузка всех продуктов -->
+<section class="fav1">
+  <div class="container3">
+    <div class="row">
+{% if category == None %}
+{% for product in product.all %}
+<div class="col-lg-4 .col-sm-6">
+    <div class="product-card">
+        <div class="product-thumb" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+          <img src="{{ product.image.small.url }}" />
+        </div>
+        <div class="product-details" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+            <h4>{{ product.shortTitle }}</h4>
+            <p>{{ product.volume }} ML</p>
+            <div class="product-bottom-details d-flex justify-content-between">
+
+                <div class="product-links row">
+                  <div class="product-price col-5">
+                      <small>{{ product.price }}$</small>
+                  </div>
+
+
+
+                  <div class="col-3">
+                    <form method="POST" action="{% url 'toggleFav' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="user" value="{{ user }}">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <input class="btn btn-primary" type="submit" value="" style='background:url("/static/img/icons/love.svg"); border:none; color:transparent; background-size:100% 100%;' />
+                    </form>
+                  </div>
+                  <div class="col-3">
+                    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="user" value="{{ user }}">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <input class="btn btn-primary" type="submit" value="" style='background:url("/static/img/icons/cart.svg"); border:none; color:transparent;background-size:100% 100%;' />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+
+
+{% endfor %}
+{% elif not category == "f" or category == "f" and skinType == None %}
+  {% for product in product.all %}
+    {% if product.category == category %}
+    <div class="col-lg-4 .col-sm-6">
+        <div class="product-card">
+            <div class="product-thumb" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+              <img src="{{ product.image.small.url }}" />
+            </div>
+            <div class="product-details" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+                <h4>{{ product.shortTitle }}</h4>
+                <p>{{ product.volume }} ML</p>
+                <div class="product-bottom-details d-flex justify-content-between">
+                    <div class="product-price">
+                        <small>{{ product.price }}$</small>
+                    </div>
+                    <div class="product-links">
+                        <a href="{% url 'toggleFav' %}"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                        <a href="{% url 'create' %}"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+{% elif category == "f" and not skinType == none %}
+{% for product in product.all %}
+{% if product.category == category and product.skinType == skinType %}
+  <div class="col-lg-4 .col-sm-6">
+      <div class="product-card">
+          <div class="product-thumb" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+            <img src="{{ product.image.small.url }}" />
+          </div>
+          <div class="product-details" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+              <h4>{{ product.shortTitle }}</h4>
+              <p>{{ product.volume }} ML</p>
+              <div class="product-bottom-details d-flex justify-content-between">
+                  <div class="product-price">
+                      <small>{{ product.price }}$</small>
+                  </div>
+                  <div class="product-links">
+                      <a href="{% url 'toggleFav' %}"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                      <a href="{% url 'create' %}"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endif %}
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</section>
+
+
+{% endblock %}

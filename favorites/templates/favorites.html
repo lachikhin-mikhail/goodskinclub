@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<section class="fav1">
+  <div class="container3">
+    <div class="row">
+{% for product in favItems %}
+<div class="col-lg-4 .col-sm-6">
+  <div class="product-card">
+      <div class="product-thumb" onclick="window.location='{% url 'detail' product.item.id %}';" style="cursor: pointer;">
+        <img src="{{ product.item.image.small.url }}" />
+      </div>
+      <div class="product-details" onclick="window.location='{% url 'detail' product.item.id %}';" style="cursor: pointer;">
+          <h4>{{ product.item.shortTitle }}</h4>
+          <p>{{ product.item.volume }} ML</p>
+          <div class="product-bottom-details d-flex justify-content-between">
+
+              <div class="product-links row">
+                <div class="product-price col-5">
+                    <small>{{ product.item.price }}$</small>
+                </div>
+
+
+
+                <div class="col-3">
+                  <form method="POST" action="{% url 'toggleFav' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ product.item.id }}">
+                  <input class="btn btn-primary" type="submit" value="" style='background:url("/static/img/icons/love.svg"); border:none; color:transparent; background-size:100% 100%;' />
+                  </form>
+                </div>
+                <div class="col-3">
+                  <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ product.item.id }}">
+                  <input class="btn btn-primary" type="submit" value="" style='background:url("/static/img/icons/cart.svg"); border:none; color:transparent;background-size:100% 100%;' />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endfor %}
+</div>
+</div>
+</section>
+
+{% endblock %}

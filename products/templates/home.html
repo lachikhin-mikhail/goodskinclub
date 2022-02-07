@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+{% load static %}
+        <img  src="{% static 'img/bg/homemain.svg' %}" alt="net" class="photo">
+
+ <div class="main">
+            <div class="mainname">
+<h1>
+    LOVE
+</h1>
+    </div>
+    <div class="praza">
+        <p1> skincare is important. love </p1>
+        <p> yourself with our cosmetic</p>
+    </div>
+</div>
+<div class="justtext">
+    <h2>
+        ABOUT LOVE
+    </h2>
+</div>
+
+<!-- <div class="conteiner2">
+    <img src="img/pictures/home1.jpg" alt="no" class="pic">
+<h3>
+    ORGANIC
+</h3>
+<img src="img/pictures/home2.jpg" width="802px" height="800px" alt="no" class="pic1">
+<h4>
+    CRUELTY-FREE
+</h4>
+<img src="img/pictures/home3.png" alt="no" class="pic2">
+<h5>
+    VEGAN
+</h5>
+<img src="img/pictures/home4.jpg" width="799px" height="800px" alt="no" class="pic3">
+<h6>
+    SUSTAINABLY
+SOURCED
+</h6> -->
+<div class="container 2">
+    <img src="{% static 'img/bg/home.svg' %}" alt="no" class="pic">
+</div>
+
+<div class="justtext2">
+    <h3>
+        FAV PRODUCTS
+    </h3>
+</div>
+
+<section class="fav">
+    <div class="container3">
+        <div class="row">
+            <div class="col-lg-3 .col-sm-6">
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <a href="#"><img src="img/prod/shampoo1.jpg" alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4><a href="#">SHAMPOO</a></h4>
+                        <p>{{product.volume}} ML</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>15,00</small>
+                            </div>
+                            <div class="product-links">
+                                <a href="#"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                                <a href="#"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 .col-sm-6">
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <a href="#"><img src="{% static 'img/prod/shampoo1.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4><a href="#">SHAMPOO</a></h4>
+                        <p>50 ML</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>15,00</small>
+                            </div>
+                            <div class="product-links">
+                                <a href="#"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                                <a href="#"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 .col-sm-6">
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <a href="#"><img src="{% static 'img/prod/shampoo1.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4><a href="#">SHAMPOO</a></h4>
+                        <p>50 ML</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>15,00</small>
+                            </div>
+                            <div class="product-links">
+                                <a href="#"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                                <a href="#"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 .col-sm-6">
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <a href="#"><img src="{% static 'img/prod/shampoo1.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4><a href="#">SHAMPOO</a></h4>
+                        <p>50 ML</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>15,00</small>
+                            </div>
+                            <div class="product-links">
+                                <a href="#"><img src="{% static 'img/icons/love.svg' %}" class="prodicon"></i></a>
+                                <a href="#"><img src="{% static 'img/icons/cart.svg' %}" class="prodicon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="justtext3">
+        <h5>
+            OUR CONTACTS
+        </h5>
+    </div>
+
+{% endblock %}

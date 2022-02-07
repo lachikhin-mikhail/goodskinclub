@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<form action="{% url 'result' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+<div>
+<p>1. Какие ощущения испытывает ваша кожа после умывания?</p>
+<div>
+<input tabindex="1" type="radio" name="skin1" value="a" /> Дискомфорт отсутствует, кожа свежая, сияющая.
+</div>
+<div>
+<input tabindex="1" type="radio" name="skin1" value="b" /> Появляется чувство стянутости, сухость, дискомфорт.
+</div>
+<div>
+<input tabindex="1" type="radio" name="skin1" value="c" /> Уже через 20 минут после умывания появляется незначительный жирный блеск лица.
+</div><div>
+<input tabindex="1" type="radio" name="skin1" value="d" /> После умывания появляется чрезмерный блеск лица в Т-зоне, область щек остается матовой.
+</div>
+</div>
+<div>
+<p>2. Какие ощущения испытывает кожа, если пренебречь этапом ее увлажнения?</p>
+<div>
+<input tabindex="2" type="radio" name="skin2" value="a" /> Не использую увлажняющий крем, без него кожа чувствует себя отлично.
+</div>
+<div>
+<input tabindex="2" type="radio" name="skin2" value="b" /> Увлажняющий крем – незаменимый этап моей бьюти-рутины, так как без него кожа сухая и стянутая.
+</div>
+<div>
+<input tabindex="2" type="radio" name="skin2" value="c" /> Без увлажнения жирный блеск лица усиливается.
+</div>
+<div>
+<input tabindex="2" type="radio" name="skin2" value="d" /> Без увлажнения жирный блеск лица усиливается в Т-зоне, область щек остается матовой.
+</div>
+</div>
+<div>
+<p>3. Оцените состояние пор на лице</p>
+<div>
+<input tabindex="3" type="radio" name="skin3" value="a" /> Поры незаметны, высыпания практически не появляются.
+</div>
+<div>
+<input tabindex="3" type="radio" name="skin3" value="b" /> Поры практически незаметны, высыпания появляются редко.
+</div>
+<div>
+<input tabindex="3" type="radio" name="skin3" value="c" /> Поры преимущественно расширенные, на лице имеются несовершенства: прыщи, черные точки, сыпь.
+</div>
+<div>
+<input tabindex="3" type="radio" name="skin3" value="d" /> Поры расширены только в области лба, носа и подбородка. В U-зоне пор нет или они слабозаметны.
+</div>
+</div>
+<div>
+<p>4. Реагирует ли кожа на влияние внешних и внутренних факторов:
+неправильное питание, вредные привычки (курение, чрезмерное употребление алкоголя),
+загрязнения окружающей среды, смена климата и др.</p>
+<div>
+<input tabindex="4" type="radio" name="skin4" value="a" /> Никак не реагирует.
+</div>
+<div>
+<input tabindex="4" type="radio" name="skin4" value="b" /> Появляется сухость, раздражение, зуд.
+</div>
+<div>
+<input tabindex="4" type="radio" name="skin4" value="c" /> Появляется чрезмерный жирный блеск лица и обостряется течение акне.
+</div>
+<div>
+<input tabindex="4" type="radio" name="skin4" value="d" /> Появляются высыпания в области лба, носа и подбородка.
+</div>
+</div>
+<div>
+<p>5. Через 30 минут после очищения кожи, без предварительного нанесения
+на нее базового крема для ухода, приложите к лицу на 20 секунд
+бумажную или матирующую салфетку. Опишите состояние салфетки.</p>
+<div>
+<input tabindex="5" type="radio" name="skin5" value="a" /> На салфетке не осталось следов.
+</div>
+<div>
+<input tabindex="5" type="radio" name="skin5" value="b" /> а салфетке не осталось следов, но на коже появилось покраснение и повысилась ее чувствительность.
+</div>
+<div>
+<input tabindex="5" type="radio" name="skin5" value="c" /> На салфетке слегка заметны следы себума.
+</div>
+<div>
+<input tabindex="5" type="radio" name="skin5" value="d" /> На салфетке остались внушительные жирные пятна.
+</div>
+</div>
+<div>
+<div>
+<p>Действия</p>
+<button tabindex="6" type="submit">Отправить</button>
+<button tabindex="7" type="reset">Очистить</button>
+</div>
+</form>
+{% endblock %}

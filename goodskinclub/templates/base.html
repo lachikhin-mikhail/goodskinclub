@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOVE COSMETIC</title>
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/fonts/Raleway/stylesheet.css' %}">
+<link rel="stylesheet" href="{% static '/fonts/PlayFair/stylesheet.css' %}">
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+</head>
+<body>
+<header class="header">
+<nav class="top-menu">
+<ul class="menu-main">
+<li class="left-item"><a href="{% url 'home' %}">ABOUT</a></li>
+<li class="left-item"><a href="{% url 'products' %}">STORE</a></li>
+<li class="left-item"><a href="{% url 'skintest' %}">SKIN TEST</a></li>
+<li class="right-item"><a href="{% url 'cart' %}">
+<img src="{% static 'img/icons/cart.svg' %}" alt="c" class="icons">
+</a></li>
+<li class="right-item"><a href="{% url 'favorite' %}">
+<img src="{% static 'img/icons/love.svg' %}" alt="l" class="icons">
+</a></li>
+{% if user.is_authenticated %}
+<li class="right-item"><a href="{% url 'logout' %}">
+{% else %}
+<li class="right-item"><a href="{% url 'signup' %}">
+{% endif %}
+<img src="{% static 'img/icons/person.svg' %}" alt="p" class="icons">
+</a></li>
+</ul>
+<a class="navbar-logo" href=""><img src="{% static 'img/bg/logo2.svg ' %}" class="logo"></a>
+</nav>
+</header>
+{% block content %}
+{% endblock %}
+<footer>
+<section class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <h4>INFORMATION</h4>
+        <ul class="list-unstyled">
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">STORE</a></li>
+          <li><a href="#">CART</a></li>
+          <li><a href="#">CONTACTS</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <h4>FROM WHERE</h4>
+        <ul class="list-unstyled">
+          <li>KALUGA</li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <h4>CONTACTS</h4>
+        <ul class="list-unstyled">
+          <li><a href="tel:8910590007">8-910-590-00-07</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <h4>SOCIAL MEDIA</h4>
+        <div class="footer-icons">
+          <a href="https://www.instagram.com/_oceanstrong_/"><img src="{% static 'img/icons/inst.svg' %}" class="prodicon1"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</footer>
+</body>
